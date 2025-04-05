@@ -1,7 +1,7 @@
 import React from "react";
-import {Navbar, Container, Nav} from 'react-bootstrap';
+import {Navbar, Container, Nav, Form } from 'react-bootstrap';
 
-export default function MyNav() {
+export default function MyNav({ searchBooks, setSearchBooks}) {
   return (
     <Navbar expand="lg" className="bg-body-secondary">
       <Container>
@@ -14,6 +14,14 @@ export default function MyNav() {
             <Nav.Link href="#">Browse</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        <Form.Group>
+            <Form.Control 
+              type="search"
+              placeholder="Search for books..."
+              value={searchBooks}
+              onChange={(e) => setSearchBooks(e.target.value)}
+            />
+          </Form.Group>
       </Container>
     </Navbar>
   )

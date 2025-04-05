@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import MyNav from './components/MyNav';
 import MyFooter from './components/MyFooter';
@@ -6,14 +7,16 @@ import AllTheBooks from './components/AllTheBooks';
 
 function App() {
 
+  const [searchBooks, setSearchBooks] = useState('')
+
   return (
     <div className="App">
       
-      <MyNav />
+      <MyNav searchBooks={searchBooks} setSearchBooks={setSearchBooks} />
 
       <Welcome />
 
-      <AllTheBooks />
+      <AllTheBooks searchBooks={searchBooks} />
 
       <MyFooter />
 
