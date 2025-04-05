@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container,Col,Row,Form } from "react-bootstrap";
 import Fantasy from '../data/fantasy.json'
 import SingleBook from "./SingleBook";
@@ -6,6 +6,13 @@ import SingleBook from "./SingleBook";
 const AllTheBooks = () => {
   // ricerca dei libri da parte dell'utente
   const [searchBooks, setSearchBooks] = useState('')
+  // salviamo la tipologia di libri dentro uno stato
+  const [filteredBooks, setFilteredBooks] = useState(Fantasy)
+  // filteredBooks = setFilteredBooks(Fantasy.filter((b) => b.title.toLowerCase().includes(searchBooks)))
+  useEffect(() => {
+    const books = Fantasy.filter((b) => b.title.toLowerCase().includes(searchBooks))
+    setFilteredBooks(books)
+  }, [searchBooks])
 
   return (
     <Container>
@@ -23,7 +30,7 @@ const AllTheBooks = () => {
         </Col>
       </Row>
       <Row className="g-2">
-        {Fantasy.filter((b) => b.title.toLowerCase().includes(searchBooks)).map((book) => {
+        {filteredBooks.map((book) => {
           return (
             <Col className="col-6 col-md-4 col-lg-3" key={book.asin}>
               <SingleBook book = {book} />
