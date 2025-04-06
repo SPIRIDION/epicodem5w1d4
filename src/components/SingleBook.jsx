@@ -1,16 +1,12 @@
-import { useState } from "react";
 import { Card } from "react-bootstrap";
-import CommentArea from "./CommentArea";
 
-const SingleBook = ({ book }) => {
-
-  const [selected, setSelected] = useState(false)
+const SingleBook = ({ book, selected, setSelected }) => {
 
   return (
     <>
       <Card 
-        onClick={() => setSelected(!selected)}
-        style={{border: selected ? '2px solid red' : '1px solid black'}}
+        onClick={() => setSelected(book.asin)}
+        style={{border: selected === book.asin ? '2px solid red' : '1px solid black'}}
       >
         <Card.Img variant="top" src={book.img} />
         <Card.Body>
@@ -18,7 +14,6 @@ const SingleBook = ({ book }) => {
           <Card.Text>Price: {book.price} $</Card.Text>
         </Card.Body> 
       </Card>
-      {selected && <CommentArea asin={book.asin}/>}   
     </>
   )
 }

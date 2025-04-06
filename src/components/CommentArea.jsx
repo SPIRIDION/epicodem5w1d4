@@ -48,7 +48,7 @@ const CommentArea = ({ asin }) => {
       <div>
         {loading && <Loading />}
         {errorMessage && <Error />}
-        <CommentList comments={comments} asin={asin}/>
+        <CommentList comments={comments} />
         <AddComment asin={asin} />
       </div>
     </>

@@ -66,7 +66,7 @@ const AddComment = ({ asin }) => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label className="mt-3">Select your rate form 1 to 5</Form.Label>
+          <Form.Label className="mt-3 fw-bold">Select your rate form 1 to 5</Form.Label>
           <Form.Control
             as="select"
             value={textComment.rate}
