@@ -10,6 +10,7 @@ const SingleBook = ({ book, selected, setSelected }) => {
       <Card 
         onClick={() => setSelected(book.asin)}
         style={{border: selected === book.asin ? '2px solid red' : '1px solid black'}}
+        data-testid="card"
       >
         <Card.Img variant="top" src={book.img} />
         <Card.Body>
